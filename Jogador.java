@@ -6,6 +6,7 @@ public abstract class Jogador {
     protected int ataque_basico;
     protected int defesa;
     protected int habilidade_elemental;
+    protected int ataque_fisico_especial;
     protected int agilidade;
     protected int idPersonagem;
 
@@ -15,19 +16,20 @@ public abstract class Jogador {
     }
 
 
-    public void pensarEstrategia(int valor){
+    public void pensarEstrategia(Jogador oponente,int valor){
         switch (valor) {
             case 1:
-                
+                oponente.HP =- ataque_basico;
                 break;
             case 2:
-                
+                oponente.HP =- habilidade_elemental;
+                PE =- 20;
                 break;
             case 3:
 
                 break;
             case 4:
-
+                // defesa =- ;
                 break;
             default:
                 throw new AssertionError();
@@ -38,7 +40,7 @@ public abstract class Jogador {
 
     }
 
-    public boolean Esquivar(Jogador atacante){
+    public boolean Esquivar(Jogador oponente){
         int diferenca = this.agilidade - oponente.agilidade;
         int chance_de_esquivar = 10 + (diferenca*2);
         if(chance_de_esquivar < 5){
@@ -50,7 +52,7 @@ public abstract class Jogador {
         int dado = Jogo.criarNumeroAleatorio();
         return dado <= chance_de_esquivar;
     }
-    public abstract void modificarRegra(); // mudar as regras de acordo com o personagem
-    public abstract void contarHistoria(); // História do personagem
+    public abstract void mudanca(); // mudar as regras de acordo com o personagem
+    public abstract void descricao(); // História do personagem
     
 }
