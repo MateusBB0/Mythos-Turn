@@ -1,37 +1,63 @@
 import java.util.random;
+import java.util.ArrayList;
 public abstract class Jogador {
     protected String nome;
     protected int HP; //pontos de vida
     protected int PE; // pontos de energia
-    protected int ataque_basico;
-    protected int defesa;
-    protected int habilidade_elemental;
+    protected ArrayList<Habilidade> ataques_elementais;
+    protected ArrayList<Habilidade> ataques_fisicos;
     protected int agilidade;
     protected int idPersonagem;
 
+
+    // Não tem como colocar ArrayList como parâmetro
+    public Jogador(String nome, int HP, int PE){
+        this.nome = nome;
+        this.HP = HP;
+        this.PE = PE;
+        this.ataques_elementais = new ArrayList<>();
+        this.ataques_fisicos =  new ArrayList<>();
+
+    }
+
+    public int getHP() {
+        return HP;
+    }
 
     public void setPersonagem(int idPersonagem){
         this.idPersonagem = idPersonagem;
     }
 
+    
 
-    public void pensarEstrategia(int valor){
+    public void pensarEstrategia(){
+        System.out.println("Escolha a estratégia");
+        System.out.println("Digite\n1 - Ataque básico");
+        System.out.println("2 - Ataques Elementais");
+        System.out.println("3 - Ataques Físicos Especiais");
+        System.out.println("4 - Defender");
+        System.out.println("5 - Abrir Inventário");
+    }
+
+    public void aplicarEstrategia(Jogador oponente,int valor){
         switch (valor) {
-            case 1:
-                
-                break;
-            case 2:
-                
-                break;
-            case 3:
-
-                break;
-            case 4:
-
-                break;
-            default:
-                throw new AssertionError();
-        }
+                    case 1:
+                        oponente.HP =- ataque_basico;
+                        break;
+                    case 2:
+                        int perda_PE = 0;
+                        oponente.HP =- habilidade_elemental;
+                        PE =- perda_PE;
+                        break;
+                    case 3:
+                        
+                        break;
+                    case 4:
+                        // defesa =- ;
+                        break;
+                    default:
+                        throw new AssertionError();
+                }
     }
 
     public void aplicarEstrategia(){
@@ -50,7 +76,7 @@ public abstract class Jogador {
         int dado = Jogo.criarNumeroAleatorio();
         return dado <= chance_de_esquivar;
     }
-    public abstract void modificarRegra(); // mudar as regras de acordo com o personagem
-    public abstract void contarHistoria(); // História do personagem
+    public abstract void mudanca(); // mudar as regras de acordo com o personagem
+    public abstract void descricao(); // História do personagem
     
 }
