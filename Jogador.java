@@ -38,7 +38,7 @@ public abstract class Jogador {
 
     }
 
-    public boolean Esquivar(Jogador atacante){
+    public boolean Esquivar(Jogador oponente){
         int diferenca = this.agilidade - oponente.agilidade;
         int chance_de_esquivar = 10 + (diferenca*2);
         if(chance_de_esquivar < 5){
