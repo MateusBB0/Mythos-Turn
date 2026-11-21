@@ -43,15 +43,9 @@ final class Loki extends Jogador{
             // Passiva: drenar 15 HP do oponente
             oponente.HP -= 15;
             HP += 15;
-            System.out.println("");
+            System.out.println("Drenou 15HP do inimigo");
         }
-
-    }
-
-    @Override 
-    public void aplicarEstrategia(Jogador oponente,int valor, int id) {
-        super.aplicarEstrategia(oponente, valor, id);
-        
+        return esquivou;
     }
     
 }
