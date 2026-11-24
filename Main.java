@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
-        MythosTurn jogo = new MythosTurn();
+        Turnos jogo = new Turnos();
 
         ArrayList<Jogador> jogadores = jogo.iniciarJogo();
         Jogador jogador1 = jogadores.get(0);
@@ -36,22 +36,10 @@ public class Main {
             turno++;
         }
 
-        System.out.println("=== FIM DE JOGO ===");
-        if (jogador1.getHP() <= 0) {
-            System.out.println(jogador2.nome + " venceu por nocaute!");
-        } else if (jogador2.getHP() <= 0) {
-            System.out.println(jogador1.nome + " venceu por nocaute!");
-        } else {
-            if (jogador1.getHP() > jogador2.getHP()) {
-                System.out.println("Limite de turnos atingido! " + jogador1.nome + " venceu com mais HP!");
-            } else if (jogador2.getHP() > jogador1.getHP()) {
-                System.out.println("Limite de turnos atingido! " + jogador2.nome + " venceu com mais HP!");
-            } else {
-                System.out.println("Empate!");
-            }
+
         }
     }
-}
+
 /* 
 import java.util.Scanner;
 public class Main {
